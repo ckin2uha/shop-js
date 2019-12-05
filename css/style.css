@@ -1,0 +1,121 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+header {
+  margin: 0 auto;
+  padding-top: 2vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  max-width: 80%;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+header .logotype {
+  text-transform: uppercase;
+}
+
+header .logotype a {
+  text-decoration: none;
+  line-height: none;
+  color: #444444;
+}
+
+header nav ol {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+header nav ol li {
+  list-style: none;
+  line-height: 50px;
+}
+
+header nav ol a {
+  font-size: 1.2em;
+  text-decoration: none;
+  color: #444444;
+  padding: 2em;
+}
+
+header nav ol a:hover {
+  text-decoration: underline;
+}
+
+main {
+  margin: 0 auto;
+  max-width: 80%;
+}
+
+main section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+main section .product {
+  width: -webkit-min-content;
+  width: -moz-min-content;
+  width: min-content;
+  padding: 1em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+main section .product img {
+  width: 300px;
+  margin-bottom: 1vh;
+}
+
+main section .product span {
+  text-align: left;
+  width: 50%;
+  margin-bottom: 1vh;
+}
+
+main section .product i {
+  text-align: right;
+  width: 50%;
+  margin-bottom: 1vh;
+}
+
+main section .product button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1em;
+}
+
+footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+/*# sourceMappingURL=style.css.map */
