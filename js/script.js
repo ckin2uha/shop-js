@@ -37,7 +37,7 @@
                             <img src="https://placehold.it/300x200">
                             <span>${item.product_name}</span>
                             <i>${item.price} $</i>
-                            <button onclick="cart.addProduct(${item.product_id})">Купить</button>
+                            <button id="${item.product_id}" onclick="cart.addProduct(${item.product_id})">Купить</button>
                         </div>
                     `
                 })
@@ -51,6 +51,7 @@
             sum: 0,
             construct() {
                     this._checkTotal()
+                    this._renderQuantityCart 
             },
             addProduct (product) {
                 let id = product
@@ -66,6 +67,8 @@
                 }
                 this._calculateSum ()
                 this._checkTotal ()
+                this._renderQuantityCart ()
+                this._renderProductCart ()
                 // cart.items.push (Object.assign ({}, find, {quantity: 1}))
             },
             deleteProduct (product) {
@@ -86,6 +89,7 @@
                     }
                 this._calculateSum ()
                 this._checkTotal ()
+                this._renderQuantityCart ()
             },
             _calculateSum () {
                 let arr = [];
@@ -94,7 +98,7 @@
                  for (let i = 0; i < arr.length; i++) {
                      totalSum += arr[i]
                  }
-                 console.log(`Цена заказанный товаров ${totalSum} $`)
+                 return(totalSum)
             },
             _checkTotal () {
                 let arr = [];
@@ -104,9 +108,39 @@
                         allTotal += arr[i]
                     }
                 console.log(`В корзине ${allTotal} товаров`)
+                return (allTotal)
             },
+            _renderQuantityCart () {
+                if (cart.items.length > 0){
+                    document.querySelector("#cart").innerHTML = `Корзина (${this._checkTotal ()})`
+                } else {
+                    return console.log(`Корзина пуста`)
+                }
+            },
+            _renderProductCart () {
+                let docDiv = document.querySelector('#div-cart')
+                if (this.items.length > 0) {
+                    str = ''
+                    this.items.forEach (el => {
+                        str += `<div class = element-cart>
+                        <p>Наименование ${el.product_name} </p>
+                        <p>Колличество ${el.quantity} шт.</p>
+                        <i>${el.price * el.quantity}$</i>
+                        </div>
+                        <hr>
+                        `
+                    })
+                    docDiv.innerHTML = (str)
+                    document.querySelector("#div-cart").innerHTML += `
+                    <p>Итог: ${this._calculateSum ()}$</p>
+                    <hr>
+                    `
+                } else {
+                    console.log(test)
+                }
+            }
         }
-        catalog.construct () //тут происходит создание объекта и вся прочая магия
+        catalog.construct  () //тут происходит создание объекта и вся прочая магия
 
         // function getData () {
         //     for (let i = 0; i < IDS.length; i++) {
@@ -126,3 +160,9 @@
         //     let find = products.find (el => el.product_id === id)
         //     cart.items.push (Object.assign ({}, find, {quantity: 1}))
         // }
+document.getElementById('cart').addEventListener ('click', openCart) // находим кнопку корзины и вешаем на нее функцию переключения класса
+    
+function openCart () {
+    let tog = document.querySelector('#div-cart')
+    tog.classList.toggle('active')
+}

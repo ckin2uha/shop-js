@@ -26,6 +26,10 @@ header .logotype a {
   color: #444444;
 }
 
+header nav {
+  position: relative;
+}
+
 header nav ol {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -36,6 +40,7 @@ header nav ol {
 }
 
 header nav ol li {
+  position: relative;
   list-style: none;
   line-height: 50px;
 }
@@ -49,6 +54,72 @@ header nav ol a {
 
 header nav ol a:hover {
   text-decoration: underline;
+}
+
+header nav ol button {
+  font-size: 1.2em;
+  border: none;
+  background: white;
+}
+
+header nav .cart {
+  display: none;
+  background: white;
+  border-radius: 4px;
+  padding: 1em;
+  position: absolute;
+  color: #444444;
+  border: 1px solid #444444;
+  width: 300px;
+  height: 400px;
+  overflow-y: scroll;
+  text-align: center;
+  z-index: 1;
+}
+
+header nav .cart::before {
+  content: '';
+  position: absolute;
+  background: #444444;
+  left: 25px;
+  top: -10px;
+  width: 20px;
+  height: 20px;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  z-index: 0;
+}
+
+header nav .cart img {
+  margin-top: 150px;
+}
+
+header nav .active {
+  display: block;
+}
+
+.element-cart {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  font-size: 0.8em;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.element-cart i {
+  width: 100%;
+}
+
+@media screen and (max-width: 1280px) {
+  .cart {
+    left: -200px !important;
+  }
+  .cart::before {
+    left: 235px !important;
+  }
 }
 
 main {
