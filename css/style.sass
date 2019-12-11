@@ -20,10 +20,12 @@ header
             line-height: none
             color: $primary-color
     nav
+        position: relative
         ol
             display: flex
             justify-content: flex-start
             li
+                position: relative
                 list-style: none
                 line-height: 50px
             a   
@@ -33,6 +35,53 @@ header
                 padding: 2em
                 &:hover
                     text-decoration: underline
+            button
+                font-size: 1.2em
+                border: none
+                background: white
+
+        .cart
+            display: none
+            background: white
+            border-radius: 4px
+            padding: 1em
+            position: absolute
+            color: $primary-color
+            border: 1px solid $primary-color
+            width: 300px
+            height: 400px
+            overflow-y: scroll
+            text-align: center
+            z-index: 1
+            &::before
+                content: ''
+                position: absolute
+                background: #444444
+                left: 25px
+                top: -10px
+                width: 20px
+                height: 20px
+                -webkit-transform: rotate(45deg)
+                transform: rotate(45deg)
+                z-index: 0
+            img
+                margin-top: 150px
+        .active
+            display: block
+
+.element-cart                
+    display: flex
+    justify-content: space-around
+    font-size: 0.8em
+    flex-wrap: wrap
+    i
+        width: 100%
+@media screen and ( max-width: 1280px  )
+    .cart
+      left: -200px!important
+      &::before
+          left: 235px !important
+                
 
 main
     margin: 0 auto
